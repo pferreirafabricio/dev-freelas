@@ -21,5 +21,11 @@ namespace DevFreela.API.Controllers
         {
             return CreatedAtAction(nameof(GetById), new { id = 1 }, teste);
         }
+
+        [HttpPut("{id}/login")]
+        public IActionResult Login(int id, [FromBody] object teste)
+        {
+            return NoContent();
+        }
     }
 }

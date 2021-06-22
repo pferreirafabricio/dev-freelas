@@ -49,5 +49,17 @@ namespace DevFreela.API.Controllers
         {
             return NoContent();
         }
+
+        [HttpPost("{id}/start")]
+        public IActionResult Start(int id)
+        {
+            return NoContent();
+        }
+
+        [HttpPost("{id}/finish")]
+        public IActionResult Finish(int id)
+        {
+            return NoContent();
+        }
     }
 }
