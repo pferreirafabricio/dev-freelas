@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFreela.API", "DevFreela.API\DevFreela.API.csproj", "{0DBB2A4C-F273-4319-A288-9DA16DEF0548}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFreela.Infrastructure", "DevFreela.Infrastructure\DevFreela.Infrastructure.csproj", "{2DE294CA-BB67-4D0D-BCFF-9D25A23EFB2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,17 @@ Global
 		{0DBB2A4C-F273-4319-A288-9DA16DEF0548}.Release|x64.Build.0 = Release|Any CPU
 		{0DBB2A4C-F273-4319-A288-9DA16DEF0548}.Release|x86.ActiveCfg = Release|Any CPU
 		{0DBB2A4C-F273-4319-A288-9DA16DEF0548}.Release|x86.Build.0 = Release|Any CPU
+		{2DE294CA-BB67-4D0D-BCFF-9D25A23EFB2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DE294CA-BB67-4D0D-BCFF-9D25A23EFB2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DE294CA-BB67-4D0D-BCFF-9D25A23EFB2A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2DE294CA-BB67-4D0D-BCFF-9D25A23EFB2A}.Debug|x64.Build.0 = Debug|Any CPU
+		{2DE294CA-BB67-4D0D-BCFF-9D25A23EFB2A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2DE294CA-BB67-4D0D-BCFF-9D25A23EFB2A}.Debug|x86.Build.0 = Debug|Any CPU
+		{2DE294CA-BB67-4D0D-BCFF-9D25A23EFB2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DE294CA-BB67-4D0D-BCFF-9D25A23EFB2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DE294CA-BB67-4D0D-BCFF-9D25A23EFB2A}.Release|x64.ActiveCfg = Release|Any CPU
+		{2DE294CA-BB67-4D0D-BCFF-9D25A23EFB2A}.Release|x64.Build.0 = Release|Any CPU
+		{2DE294CA-BB67-4D0D-BCFF-9D25A23EFB2A}.Release|x86.ActiveCfg = Release|Any CPU
+		{2DE294CA-BB67-4D0D-BCFF-9D25A23EFB2A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
