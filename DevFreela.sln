@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFreela.API", "DevFreela.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFreela.Infrastructure", "DevFreela.Infrastructure\DevFreela.Infrastructure.csproj", "{2DE294CA-BB67-4D0D-BCFF-9D25A23EFB2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFreela.Application", "DevFreela.Application\DevFreela.Application.csproj", "{2D6F46A4-29A2-4A24-BC03-5AA908A5F49C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,5 +46,17 @@ Global
 		{2DE294CA-BB67-4D0D-BCFF-9D25A23EFB2A}.Release|x64.Build.0 = Release|Any CPU
 		{2DE294CA-BB67-4D0D-BCFF-9D25A23EFB2A}.Release|x86.ActiveCfg = Release|Any CPU
 		{2DE294CA-BB67-4D0D-BCFF-9D25A23EFB2A}.Release|x86.Build.0 = Release|Any CPU
+		{2D6F46A4-29A2-4A24-BC03-5AA908A5F49C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D6F46A4-29A2-4A24-BC03-5AA908A5F49C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D6F46A4-29A2-4A24-BC03-5AA908A5F49C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2D6F46A4-29A2-4A24-BC03-5AA908A5F49C}.Debug|x64.Build.0 = Debug|Any CPU
+		{2D6F46A4-29A2-4A24-BC03-5AA908A5F49C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2D6F46A4-29A2-4A24-BC03-5AA908A5F49C}.Debug|x86.Build.0 = Debug|Any CPU
+		{2D6F46A4-29A2-4A24-BC03-5AA908A5F49C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D6F46A4-29A2-4A24-BC03-5AA908A5F49C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D6F46A4-29A2-4A24-BC03-5AA908A5F49C}.Release|x64.ActiveCfg = Release|Any CPU
+		{2D6F46A4-29A2-4A24-BC03-5AA908A5F49C}.Release|x64.Build.0 = Release|Any CPU
+		{2D6F46A4-29A2-4A24-BC03-5AA908A5F49C}.Release|x86.ActiveCfg = Release|Any CPU
+		{2D6F46A4-29A2-4A24-BC03-5AA908A5F49C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
