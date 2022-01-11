@@ -3,16 +3,22 @@ using DevFreela.Application.Services.Interfaces;
 using DevFreela.Application.ViewModels;
 using DevFreela.Core.Entities;
 using DevFreela.Infrastructure.Persistence;
+using Microsoft.Extensions.Configuration;
 using System.Linq;
+using Dapper;
+using MySqlConnector;
 
 namespace DevFreela.Application.Services.Implementations
 {
     public class UserService : IUserService
     {
         private readonly DevFreelaDbContext _dbContext;
-        public UserService(DevFreelaDbContext dbContext)
+        private readonly string _connectionString;
+
+        public UserService(DevFreelaDbContext dbContext, IConfiguration configuration)
         {
             _dbContext = dbContext;
+            _connectionString = configuration.GetConnectionString("DevFreelaCs");
         }
 
         public int Create(CreateUserInputModel inputModel)
@@ -27,14 +33,25 @@ namespace DevFreela.Application.Services.Implementations
 
         public UserViewModel GetUser(int id)
         {
-            var user = _dbContext.Users.SingleOrDefault(u => u.Id == id);
-
-            if (user == null)
+            using (var sqlConnection = new MySqlConnection(_connectionString))
             {
-                return null;
+                sqlConnection.Open();
+
+                var script = "SELECT FullName, Email from users WHERE Id = @id";
+
+                return sqlConnection
+                    .Query<UserViewModel>(script, new { id })
+                    .SingleOrDefault();
             }
 
-            return new UserViewModel(user.FullName, user.Email);
+            // var user = _dbContext.Users.SingleOrDefault(u => u.Id == id);
+
+            // if (user == null)
+            // {
+            //     return null;
+            // }
+
+            // return new UserViewModel(user.FullName, user.Email);
         }
     }
 }

@@ -22,7 +22,12 @@ namespace DevFreela.API.Controllers
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            return Ok();
+            var user = _userSerivice.GetUser(id);
+
+            if (user == null) 
+                return NotFound();
+
+            return Ok(user);
         }
 
         // [HttpPost]
