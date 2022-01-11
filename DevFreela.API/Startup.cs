@@ -35,6 +35,7 @@ namespace DevFreela.API
                 options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
             );
             services.AddScoped<IProjectService, ProjectService>();
+            services.AddScoped<IUserService, UserService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
