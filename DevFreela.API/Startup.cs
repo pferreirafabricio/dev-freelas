@@ -34,6 +34,14 @@ namespace DevFreela.API
             services.AddDbContext<DevFreelaDbContext>(
                 options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
             );
+            
+            // Use de database in memory. OBS: Install Microsoft.EntityFrameworkCore.InMemory
+            // services.AddDbContext<DevFreelaDbContext>(
+            //     options => options.UseInMemoryDatabase("DevFrela")
+            // );
+
+            // Configure the DI. When whe declare a method with Method(IProjectService)
+            // the runtime wil now what class instantiate
             services.AddScoped<IProjectService, ProjectService>();
             services.AddScoped<IUserService, UserService>();
 
