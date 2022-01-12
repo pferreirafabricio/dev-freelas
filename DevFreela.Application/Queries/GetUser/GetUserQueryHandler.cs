@@ -1,27 +1,25 @@
-﻿using DevFreela.Application.InputModels;
-using DevFreela.Application.Services.Interfaces;
-using DevFreela.Application.ViewModels;
-using DevFreela.Core.Entities;
-using DevFreela.Infrastructure.Persistence;
-using Microsoft.Extensions.Configuration;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Dapper;
+using DevFreela.Application.ViewModels;
+using DevFreela.Infrastructure.Persistence;
+using MediatR;
+using Microsoft.Extensions.Configuration;
 using MySqlConnector;
 
-namespace DevFreela.Application.Services.Implementations
+namespace DevFreela.Application.Queries.GetUser
 {
-    public class UserService : IUserService
+    public class GetUserQueryHandler : IRequestHandler<GetUserQuery, UserViewModel>
     {
-        private readonly DevFreelaDbContext _dbContext;
         private readonly string _connectionString;
 
-        public UserService(DevFreelaDbContext dbContext, IConfiguration configuration)
+        public GetUserQueryHandler(IConfiguration configuration)
         {
-            _dbContext = dbContext;
             _connectionString = configuration.GetConnectionString("DevFreelaCs");
         }
 
-        public UserViewModel GetUser(int id)
+        public async Task<UserViewModel> Handle(GetUserQuery request, CancellationToken cancellationToken)
         {
             using (var sqlConnection = new MySqlConnection(_connectionString))
             {
@@ -29,9 +27,10 @@ namespace DevFreela.Application.Services.Implementations
 
                 var script = "SELECT FullName, Email from users WHERE Id = @id";
 
-                return sqlConnection
-                    .Query<UserViewModel>(script, new { id })
-                    .SingleOrDefault();
+                var dbResut = await sqlConnection
+                    .QueryAsync<UserViewModel>(script, new { request.Id });
+
+                return dbResut.ToList().SingleOrDefault();
             }
 
             // var user = _dbContext.Users.SingleOrDefault(u => u.Id == id);
