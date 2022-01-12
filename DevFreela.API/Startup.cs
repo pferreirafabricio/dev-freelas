@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DevFreela.Application.Commands.CreateProject;
-using DevFreela.Application.Services.Implementations;
-using DevFreela.Application.Services.Interfaces;
 using DevFreela.Infrastructure.Persistence;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -44,8 +42,7 @@ namespace DevFreela.API
 
             // Configure the DI. When whe declare a method with Method(IProjectService)
             // the runtime wil now what class instantiate
-            services.AddScoped<IProjectService, ProjectService>();
-            services.AddScoped<IUserService, UserService>();
+            // services.AddScoped<IUserService, UserService>();
 
             services.AddControllers();
 
