@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DevFreela.Application.Commands.CreateProject;
 using DevFreela.Application.Services.Implementations;
 using DevFreela.Application.Services.Interfaces;
 using DevFreela.Infrastructure.Persistence;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -37,7 +39,7 @@ namespace DevFreela.API
             
             // Use de database in memory. OBS: Install Microsoft.EntityFrameworkCore.InMemory
             // services.AddDbContext<DevFreelaDbContext>(
-            //     options => options.UseInMemoryDatabase("DevFrela")
+            //     options => options.UseInMemoryDatabase("DevFreela")
             // );
 
             // Configure the DI. When whe declare a method with Method(IProjectService)
@@ -46,6 +48,9 @@ namespace DevFreela.API
             services.AddScoped<IUserService, UserService>();
 
             services.AddControllers();
+
+            services.AddMediatR(typeof(CreateProjectCommand));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "DevFreela.API", Version = "v1" });

@@ -1,6 +1,8 @@
-namespace DevFreela.Application.InputModels
+using MediatR;
+
+namespace DevFreela.Application.Commands.CreateComment
 {
-    public class CreateCommentInputModel
+    public class CreateCommentCommand : IRequest<Unit>
     {
         public string Content { get; private set; }
         public int IdProject { get; private set; }
