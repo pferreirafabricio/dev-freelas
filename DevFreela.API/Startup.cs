@@ -19,6 +19,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using FluentValidation.AspNetCore;
 using DevFreela.Application.Validators;
+using DevFreela.API.Filters;
 
 namespace DevFreela.API
 {
@@ -50,7 +51,7 @@ namespace DevFreela.API
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ISkillRepository, SkillRepository>();
 
-            services.AddControllers()
+            services.AddControllers(options => options.Filters.Add(typeof(ValidationFilter)))
                     .AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<CreateUserCommandValidator>());
 
             // Will get the nexts commands by this specific command using this namespace
