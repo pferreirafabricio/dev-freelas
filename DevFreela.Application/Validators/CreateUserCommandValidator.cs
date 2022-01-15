@@ -1,6 +1,6 @@
-using System.Text.RegularExpressions;
-using DevFreela.Application.Commands.CreateUser;
+﻿using DevFreela.Application.Commands.CreateUser;
 using FluentValidation;
+using System.Text.RegularExpressions;
 
 namespace DevFreela.Application.Validators
 {
@@ -10,21 +10,21 @@ namespace DevFreela.Application.Validators
         {
             RuleFor(p => p.Email)
                 .EmailAddress()
-                .WithMessage("E-mail não é válido");
+                .WithMessage("E-mail não válido!");
 
             RuleFor(p => p.Password)
                 .Must(ValidPassword)
-                .WithMessage("Senha não é válido");
+                .WithMessage("Senha deve conter pelo menos 8 caracteres, um número, uma letra maiúscula, uma minúscula, e um caractere especial");
 
             RuleFor(p => p.FullName)
                 .NotEmpty()
                 .NotNull()
-                .WithMessage("Nome é obrigatório");
+                .WithMessage("Nome é obrigatório!");
         }
 
         public bool ValidPassword(string password)
         {
-            var regex = new Regex("/i");
+            var regex = new Regex(@"^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!*@#$%^&+=]).*$");
 
             return regex.IsMatch(password);
         }

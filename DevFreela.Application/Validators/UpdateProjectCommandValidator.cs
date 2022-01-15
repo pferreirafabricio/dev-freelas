@@ -1,11 +1,11 @@
-﻿using DevFreela.Application.Commands.CreateProject;
+﻿using DevFreela.Application.Commands.UpdateProject;
 using FluentValidation;
 
 namespace DevFreela.Application.Validators
 {
-    public class CreateProjectCommandvalidator : AbstractValidator<CreateProjectCommand>
+    public class UpdateProjectCommandValidator : AbstractValidator<UpdateProjectCommand>
     {
-        public CreateProjectCommandvalidator()
+        public UpdateProjectCommandValidator()
         {
             RuleFor(p => p.Description)
                 .MaximumLength(255)
