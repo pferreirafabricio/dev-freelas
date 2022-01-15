@@ -15,9 +15,11 @@ namespace DevFreela.Infrastructure.Repositories
     public class UserRepository : IUserRepository
     {
         private readonly string _connectionString;
+        private readonly DevFreelaDbContext _dbContext;
 
-        public UserRepository(IConfiguration configuration)
+        public UserRepository(DevFreelaDbContext dbContext, IConfiguration configuration)
         {
+            _dbContext = dbContext;
             _connectionString = configuration.GetConnectionString("DevFreelaCs");
         }
 
@@ -34,6 +36,12 @@ namespace DevFreela.Infrastructure.Repositories
 
                 return dbResut.ToList().SingleOrDefault();
             }
+        }
+
+        public async Task AddAsync(User user)
+        {
+            await _dbContext.Users.AddAsync(user);
+            await _dbContext.SaveChangesAsync();
         }
     }
 }

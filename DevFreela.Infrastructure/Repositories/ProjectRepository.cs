@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using DevFreela.Core.Entities;
 using DevFreela.Core.Repositories;
@@ -32,6 +33,23 @@ namespace DevFreela.Infrastructure.Repositories
                .SingleOrDefaultAsync(p => p.Id == id);
 
             return project;
+        }
+
+        public async Task AddAsync(Project project)
+        {
+            await _dbContext.Projects.AddAsync(project);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task SaveChangesAsync()
+        {
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task AddCommentAsync(ProjectComment projectComment)
+        {
+            await _dbContext.ProjectComments.AddAsync(projectComment);
+            await _dbContext.SaveChangesAsync();
         }
     }
 }
