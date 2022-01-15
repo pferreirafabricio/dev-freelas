@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DevFreela.Application.Commands.CreateProject;
+using DevFreela.Core.Repositories;
 using DevFreela.Infrastructure.Persistence;
+using DevFreela.Infrastructure.Repositories;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -40,9 +42,11 @@ namespace DevFreela.API
             //     options => options.UseInMemoryDatabase("DevFreela")
             // );
 
-            // Configure the DI. When whe declare a method with Method(IProjectService)
+            // Configure the DI. When whe declare a method with Method(IProjectRepository)
             // the runtime wil now what class instantiate
-            // services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IProjectRepository, ProjectRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ISkillRepository, SkillRepository>();
 
             services.AddControllers();
 
