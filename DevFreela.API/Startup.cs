@@ -17,6 +17,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using FluentValidation.AspNetCore;
+using DevFreela.Application.Validators;
 
 namespace DevFreela.API
 {
@@ -48,8 +50,10 @@ namespace DevFreela.API
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ISkillRepository, SkillRepository>();
 
-            services.AddControllers();
+            services.AddControllers()
+                    .AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<CreateUserCommandValidator>());
 
+            // Will get the nexts commands by this specific command using this namespace
             services.AddMediatR(typeof(CreateProjectCommand));
 
             services.AddSwaggerGen(c =>
