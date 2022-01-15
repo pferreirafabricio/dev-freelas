@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace DevFreela.Infrastructure.Auth
@@ -16,6 +17,23 @@ namespace DevFreela.Infrastructure.Auth
         public AuthService(IConfiguration configuration)
         {
             _configuration = configuration;
+        }
+
+        public string ComputeSha256Hash(string password)
+        {
+            using (var sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+                var builder = new StringBuilder();
+
+                for (var index = 0; index < bytes.Length; index++)
+                {
+                    builder.Append(bytes[index].ToString("x2"));
+                }
+
+                return builder.ToString();
+            }
         }
 
         public string GenerateJwtToken(string email, string role)
