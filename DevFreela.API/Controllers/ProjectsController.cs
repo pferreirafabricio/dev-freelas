@@ -29,6 +29,7 @@ namespace DevFreela.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "client, freelancer")]
         public async Task<IActionResult> Get(string query)
         {
             var getAllProjectsQuery = new GetAllProjectsQuery(query);
@@ -39,6 +40,7 @@ namespace DevFreela.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "client, freelancer")]
         public async Task<IActionResult> GetById(int id)
         {
             var query = new GetProjectByIdQuery(id);
@@ -52,6 +54,7 @@ namespace DevFreela.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "client")]
         public async Task<IActionResult> Post([FromBody] CreateProjectCommand command)
         {
             var id = await _mediator.Send(command);
@@ -60,6 +63,7 @@ namespace DevFreela.API.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "client")]
         public async Task<IActionResult> Put(int id, [FromBody] UpdateProjectCommand command)
         {
             await _mediator.Send(command);
@@ -68,6 +72,7 @@ namespace DevFreela.API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "client")]
         public async Task<IActionResult> Delete(int id)
         {
             var command = new DeleteProjectCommand(id);
@@ -78,6 +83,7 @@ namespace DevFreela.API.Controllers
         }
 
         [HttpPost("{id}/comments")]
+        [Authorize(Roles = "client, freelancer")]
         public async Task<IActionResult> PostComment(int id, [FromBody] CreateCommentCommand command)
         {
             await _mediator.Send(command);
@@ -86,6 +92,7 @@ namespace DevFreela.API.Controllers
         }
 
         [HttpPost("{id}/start")]
+        [Authorize(Roles = "client")]
         public async Task<IActionResult> Start(int id)
         {
             var command = new StartProjectCommand(id);
@@ -96,6 +103,7 @@ namespace DevFreela.API.Controllers
         }
 
         [HttpPost("{id}/finish")]
+        [Authorize(Roles = "client")]
         public async Task<IActionResult> Finish(int id)
         {
             var command = new FinishProjectCommand(id);
