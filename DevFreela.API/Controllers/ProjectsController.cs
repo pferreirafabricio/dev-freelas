@@ -62,9 +62,6 @@ namespace DevFreela.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] UpdateProjectCommand command)
         {
-            if (command.Description.Length > 200)
-                return BadRequest();
-
             await _mediator.Send(command);
 
             return Ok();
