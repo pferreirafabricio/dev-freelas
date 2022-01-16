@@ -10,7 +10,7 @@ namespace DevFreela.UnitTests.Core.Entities
         public void TestIfProjectStartWorks()
         {
             // Given
-            var project = new Project("Test name", "Test description", 1, 1, 100);
+            var project = new Project("Test name", "Test description", 1, 2, 100);
         
             Assert.Equal(ProjectStatusEnum.Created, project.Status);
             Assert.Null(project.StartedAt);
