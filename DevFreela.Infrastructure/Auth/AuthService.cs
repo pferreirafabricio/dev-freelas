@@ -29,7 +29,7 @@ namespace DevFreela.Infrastructure.Auth
 
                 for (var index = 0; index < bytes.Length; index++)
                 {
-                    builder.Append(bytes[index].ToString("x2"));
+                    builder.Append(bytes[index].ToString("x2")); // x2 convert to hex
                 }
 
                 return builder.ToString();
