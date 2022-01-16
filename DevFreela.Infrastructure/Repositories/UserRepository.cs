@@ -43,5 +43,11 @@ namespace DevFreela.Infrastructure.Repositories
             await _dbContext.Users.AddAsync(user);
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task<User> GetByEmailAndPasswordAsync(string email, string passwordHash)
+        {
+            return await _dbContext.Users
+                .SingleOrDefaultAsync(u => u.Email == email && u.Password == passwordHash);
+        }
     }
 }
