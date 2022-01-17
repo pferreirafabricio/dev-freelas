@@ -14,32 +14,22 @@
 ## :open_book: About 
 This project is a a simple RESTful API for...
 
-## :rosette: API Routes
-```
-GET - players/
-GET - players/{nick}
-POST - players/
-PUT - players/
-
-GET - history/{nick}
-PUT - history/
-```
-
 ## :bricks: This project was built with: 
-- [C#](https://www.php.net/)
-- [.NET Core 5](https://github.com/robsonvleite/router)
-- [MediatR]()
+- [C#](https://docs.microsoft.com/en-us/dotnet/csharp/)
+- [.NET Core 5](https://dotnet.microsoft.com/en-us/download/dotnet/5.0)
+- [MediatR](https://github.com/jbogard/MediatR)
 - [MySQL](https://www.mysql.com/)
-- [Entity Framework Core]()
-- [xUnit]()
-- [Fluent Validation]()
+- [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
+- [xUnit](https://xunit.net/)
+- [Fluent Validation](https://fluentvalidation.net/)
+- [Swagger](https://swagger.io/)
 
 ## 🏄‍♂️ Quick Start
  1. Clone this repository `git clone https://github.com/pferreirafabricio/dev-freelas.git`;
  2. Enter in the project's folder: `cd dev-freelas`
  3. Install dependencies: `dotnet restore`
  > OBS: Before the next step install the dotnet-ef tool globally first with `dotnet tool install --global dotnet-ef command`
- 4. Run migrations: `dotnet ef database update -s ..\DevFreela.API\DevFreela.API.csproj`
+ 4. Run migrations: `dotnet ef database update -s ../DevFreela.API/DevFreela.API.csproj`
  5. Enter the API project's folder: `cd ./DevFreela.API`
  6. Run the API and be happy: `dotnet watch run` 😃
  
