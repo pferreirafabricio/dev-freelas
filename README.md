@@ -12,7 +12,7 @@
 </p>
 
 ## :open_book: About 
-This project is a a simple RESTful API for...
+This project is a simple RESTful API for control freelance projects. Made for studies purposes, this API uses Clean Architecture, MediatR, Dependency Injection, Unit Testing, Authentication, Authorization and so many more concepts.
 
 ## :bricks: This project was built with: 
 - [C#](https://docs.microsoft.com/en-us/dotnet/csharp/)
@@ -28,7 +28,7 @@ This project is a a simple RESTful API for...
  1. Clone this repository `git clone https://github.com/pferreirafabricio/dev-freelas.git`;
  2. Enter in the project's folder: `cd dev-freelas`
  3. Install dependencies: `dotnet restore`
- > OBS: Before the next step install the dotnet-ef tool globally first with `dotnet tool install --global dotnet-ef command`
+ > OBS: Before the next step ensure that dotnet-ef tool is installed globally with `dotnet ef --version`, if not install with: `dotnet tool install --global dotnet-ef command`
  4. Run migrations: `dotnet ef database update -s ../DevFreela.API/DevFreela.API.csproj`
  5. Enter the API project's folder: `cd ./DevFreela.API`
  6. Run the API and be happy: `dotnet watch run` 😃
