@@ -44,4 +44,7 @@ This project is under the MIT license. Take a look at the [LICENSE](LICENSE.md) 
 
 ## 📚 Learn more
 
-  * Guides: https://super.guide.com
+  * [Luis Dev blog](https://www.luisdev.com.br/)
+  * [Método .NET Direto ao ponto](https://lp.luisdev.com.br/lista-de-espera-metodo-net-direto-ao-ponto)
+  * [Learn .NET](https://dotnet.microsoft.com/en-us/learn)
+  * [Quick introduction to clean architecture](https://www.freecodecamp.org/news/a-quick-introduction-to-clean-architecture-990c014448d2/)
