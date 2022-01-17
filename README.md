@@ -1,13 +1,13 @@
 <h5 align="center">
-  <img src="https://miro.medium.com/max/976/1*f6XaetSL3yvsvKxp55sKsQ.png" width="250px" />
+  <img src="https://styles.redditmedia.com/t5_2qhdf/styles/communityIcon_sk8k2hisvyv51.png" height="80px" />
   &nbsp;&nbsp;&nbsp; 
-  <img src="https://i0.wp.com/jasontaylor.dev/wp-content/uploads/2020/01/Figure-01-2.png?resize=531%2C531&ssl=1" height="160px" />
+  <img src="https://sabresistemas.com.br/wp-content/uploads/2021/03/sabre-sistemas-erp-software-tecnologia-microsoft-net-core.png" width="250px" />
   <br>  
   <br>  
   <b>Creating and managing freelance projects</b> 📒
 </h5>
 <p align="center">
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-purple">
   <img alt="CI Badge" src="https://github.com/pferreirafabricio/dev-freelas/actions/workflows/dotnet.yml/badge.svg">
 </p>
 
