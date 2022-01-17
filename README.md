@@ -4,7 +4,7 @@
   <img src="https://i0.wp.com/jasontaylor.dev/wp-content/uploads/2020/01/Figure-01-2.png?resize=531%2C531&ssl=1" height="160px" />
   <br>  
   <br>  
-  <b>A FZero-like game</b> 🚘
+  <b>Creating and managing freelance projects</b> 📒
 </h5>
 <p align="center">
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
@@ -26,13 +26,12 @@ PUT - history/
 ```
 
 ## :bricks: This project was built with: 
-- [PHP](https://www.php.net/)
-- [CoffeCode Router](https://github.com/robsonvleite/router)
+- [C#](https://www.php.net/)
+- [.NET Core 5](https://github.com/robsonvleite/router)
+- [MediatR]()
 - [MySQL](https://www.mysql.com/)
-- [Nginx](https://www.nginx.com/)
-- [Docker](https://www.docker.com/)
 
-## :running_man: Installing and Running  
+## 🏄‍♂️ Quick Start
  1. Clone this repository `git clone https://github.com/pferreirafabricio/php-pirateCave.git`;
  2. Enter in the project's folder: `cd php-pirateCave`
  3. Build de app image: `docker-compose build app`
@@ -48,3 +47,7 @@ PUT - history/
  
 ## :page_with_curl:	License
 This project is under the MIT license. Take a look at the [LICENSE](LICENSE.md) file for more details.
+
+## 📚 Learn more
+
+  * Guides: https://super.guide.com
