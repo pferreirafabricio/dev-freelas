@@ -30,14 +30,18 @@ PUT - history/
 - [.NET Core 5](https://github.com/robsonvleite/router)
 - [MediatR]()
 - [MySQL](https://www.mysql.com/)
+- [Entity Framework Core]()
+- [xUnit]()
+- [Fluent Validation]()
 
 ## 🏄‍♂️ Quick Start
- 1. Clone this repository `git clone https://github.com/pferreirafabricio/php-pirateCave.git`;
- 2. Enter in the project's folder: `cd php-pirateCave`
- 3. Build de app image: `docker-compose build app`
- 4. Start the containers: `docker-compose up -d`
- 6. Install project's dependencies: `docker-compose exec app composer install`
- 7. Finally you can visit [`127.0.0.1:8000`](http://127.0.0.1:8000/) from your browser 😃
+ 1. Clone this repository `git clone https://github.com/pferreirafabricio/dev-freelas.git`;
+ 2. Enter in the project's folder: `cd dev-freelas`
+ 3. Install dependencies: `dotnet restore`
+ > OBS: Before the next step install the dotnet-ef tool globally first with `dotnet tool install --global dotnet-ef command`
+ 4. Run migrations: `dotnet ef database update -s ..\DevFreela.API\DevFreela.API.csproj`
+ 5. Enter the API project's folder: `cd ./DevFreela.API`
+ 6. Run the API and be happy: `dotnet watch run` 😃
  
 ## :recycle: Contribute
  1. Fork this repository;
