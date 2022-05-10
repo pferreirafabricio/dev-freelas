@@ -32,7 +32,7 @@ namespace DevFreela.Application.Commands.FinishProject
                 request.Cvv,
                 request.ExpiresAt,
                 request.FullName,
-                request.Amount
+                project.TotalCost
             );
 
             var result = await _paymentService.Process(paymentInfoDto);

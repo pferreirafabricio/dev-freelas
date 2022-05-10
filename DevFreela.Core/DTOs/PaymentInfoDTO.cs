@@ -11,7 +11,7 @@
             decimal amount
         )
         {
-            IdProject = idProject;
+            Id = idProject;
             CreditCardNumber = creditCardNumber;
             Cvv = cvv;
             ExpiresAt = expiresAt;
@@ -19,7 +19,7 @@
             Amount = amount;
 
         }
-        public int IdProject { get; set; }
+        public int Id { get; set; }
         public string CreditCardNumber { get; set; }
         public string Cvv { get; set; }
         public string ExpiresAt { get; set; }
