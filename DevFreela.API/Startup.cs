@@ -25,6 +25,7 @@ using DevFreela.Infrastructure.Auth;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using DevFreela.Infrastructure.Payments;
 
 namespace DevFreela.API
 {
@@ -58,6 +59,7 @@ namespace DevFreela.API
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ISkillRepository, SkillRepository>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IPaymentService, PaymentService>();
 
             services.AddControllers(options => options.Filters.Add(typeof(ValidationFilter)))
                     .AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<CreateUserCommandValidator>());

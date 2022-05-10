@@ -6,7 +6,7 @@ using DevFreela.Core.DTOs;
 using DevFreela.Core.Services;
 using Microsoft.Extensions.Configuration;
 
-namespace DevFreela.Payments.API.Services
+namespace DevFreela.Infrastructure.Payments
 {
     public class PaymentService : IPaymentService
     {
