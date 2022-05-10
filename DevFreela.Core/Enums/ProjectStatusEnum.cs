@@ -6,6 +6,7 @@ namespace DevFreela.Core.Enums
         InProgress,
         Suspended,
         Canceled,
-        Finished
+        Finished,
+        PaymentPending
     }
 }
