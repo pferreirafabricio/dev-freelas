@@ -45,6 +45,8 @@ namespace DevFreela.API
                 options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
             );
 
+            services.AddHttpClient();
+
             // Use de database in memory. OBS: Install Microsoft.EntityFrameworkCore.InMemory
             // services.AddDbContext<DevFreelaDbContext>(
             //     options => options.UseInMemoryDatabase("DevFreela")
