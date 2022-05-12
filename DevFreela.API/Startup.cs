@@ -27,6 +27,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using DevFreela.Infrastructure.Payments;
 using DevFreela.API.Extensions;
+using DevFreela.Application.Consumers;
 
 namespace DevFreela.API
 {
@@ -48,6 +49,7 @@ namespace DevFreela.API
             );
 
             services.AddHttpClient();
+            services.AddHostedService<PaymentApprovedConsumer>();
 
             // Use de database in memory. OBS: Install Microsoft.EntityFrameworkCore.InMemory
             // services.AddDbContext<DevFreelaDbContext>(
