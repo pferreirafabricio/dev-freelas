@@ -10,21 +10,22 @@ namespace DevFreela.Infrastructure.Payments
 {
     public class PaymentService : IPaymentService
     {
-        private readonly IHttpClientFactory _httpClientFactory;
+        // private readonly IHttpClientFactory _httpClientFactory;
+        // private readonly string _paymentsBaseUrl;
+        
         private readonly IMessageBusService _messageBusService;
         private const string QUEUE_NAME = "Payments";
-        private readonly string _paymentsBaseUrl;
 
         public PaymentService(IMessageBusService messageBusService)
         {
             _messageBusService = messageBusService;
         }
 
-        public PaymentService(IHttpClientFactory httpClientFactory, IConfiguration configuration)
-        {
-            _httpClientFactory = httpClientFactory;
-            _paymentsBaseUrl = configuration.GetSection("Services:Payments").Value;
-        }
+        // public PaymentService(IHttpClientFactory httpClientFactory, IConfiguration configuration)
+        // {
+        //     _httpClientFactory = httpClientFactory;
+        //     _paymentsBaseUrl = configuration.GetSection("Services:Payments").Value;
+        // }
 
         public void Process(PaymentInfoDTO paymentInfoDTO)
         {
@@ -34,21 +35,21 @@ namespace DevFreela.Infrastructure.Payments
             _messageBusService.Publish(QUEUE_NAME, paymentInfoBytes);
         }
 
-        public async Task<bool> ProcessWithHttp(PaymentInfoDTO paymentInfoDTO)
-        {
-            var url = $"{_paymentsBaseUrl}/api/payments";
-            var paymentInfoJson = JsonSerializer.Serialize(paymentInfoDTO);
-            var paymentInfoContext =  new StringContent(
-                paymentInfoJson,
-                Encoding.UTF8,
-                "application/json"
-            );
+        // public async Task<bool> ProcessWithHttp(PaymentInfoDTO paymentInfoDTO)
+        // {
+        //     var url = $"{_paymentsBaseUrl}/api/payments";
+        //     var paymentInfoJson = JsonSerializer.Serialize(paymentInfoDTO);
+        //     var paymentInfoContext =  new StringContent(
+        //         paymentInfoJson,
+        //         Encoding.UTF8,
+        //         "application/json"
+        //     );
 
-            var httpClient = _httpClientFactory.CreateClient("Payments");
+        //     var httpClient = _httpClientFactory.CreateClient("Payments");
 
-            var response = await httpClient.PostAsync(url, paymentInfoContext);
+        //     var response = await httpClient.PostAsync(url, paymentInfoContext);
 
-            return response.IsSuccessStatusCode;
-        }
+        //     return response.IsSuccessStatusCode;
+        // }
     }
 }

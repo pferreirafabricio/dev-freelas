@@ -5,7 +5,7 @@ namespace DevFreela.Core.Services
 {
     public interface IPaymentService
     {
-        Task<bool> ProcessWithHttp(PaymentInfoDTO paymentInfoDTO);
+        // Task<bool> ProcessWithHttp(PaymentInfoDTO paymentInfoDTO);
 
         /// <summary>
         /// Will use the Message bus
