@@ -26,6 +26,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using DevFreela.Infrastructure.Payments;
+using DevFreela.API.Extensions;
 
 namespace DevFreela.API
 {
@@ -53,18 +54,12 @@ namespace DevFreela.API
             //     options => options.UseInMemoryDatabase("DevFreela")
             // );
 
-            // Configure the DI. When whe declare a method with Method(IProjectRepository)
-            // the runtime wil now what class instantiate
-            services.AddScoped<IProjectRepository, ProjectRepository>();
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<ISkillRepository, SkillRepository>();
-            services.AddScoped<IAuthService, AuthService>();
-            services.AddScoped<IPaymentService, PaymentService>();
+            services.AddInfrastructure();
 
             services.AddControllers(options => options.Filters.Add(typeof(ValidationFilter)))
-                    .AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<CreateUserCommandValidator>());
+                .AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<CreateUserCommandValidator>());
 
-            // Will get the nexts commands by this specific command using this namespace
+            // Will get the next commands by this specific command using this namespace
             services.AddMediatR(typeof(CreateProjectCommand));
 
             services.AddSwaggerGen(c =>
