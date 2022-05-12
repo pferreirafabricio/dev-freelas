@@ -35,7 +35,7 @@ namespace DevFreela.Application.Commands.FinishProject
                 project.TotalCost
             );
 
-            var result = await _paymentService.Process(paymentInfoDto);
+            var result = await _paymentService.ProcessWithHttp(paymentInfoDto);
 
             if (!result)
                 project.SetPaymentPending();
