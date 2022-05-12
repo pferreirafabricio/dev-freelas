@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using DevFreela.Core.DTOs;
 using DevFreela.Core.Repositories;
 using DevFreela.Core.Services;
-using DevFreela.Infrastructure.Persistence;
 using MediatR;
 
 namespace DevFreela.Application.Commands.FinishProject
@@ -35,10 +34,12 @@ namespace DevFreela.Application.Commands.FinishProject
                 project.TotalCost
             );
 
-            var result = await _paymentService.ProcessWithHttp(paymentInfoDto);
+            // var result = await _paymentService.ProcessWithHttp(paymentInfoDto);
+            // if (!result)
+            //     project.SetPaymentPending();
 
-            if (!result)
-                project.SetPaymentPending();
+            _paymentService.Process(paymentInfoDto);
+            project.SetPaymentPending();
 
             await _projectRepository.SaveChangesAsync();
             

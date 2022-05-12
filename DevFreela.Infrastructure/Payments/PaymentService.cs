@@ -11,12 +11,27 @@ namespace DevFreela.Infrastructure.Payments
     public class PaymentService : IPaymentService
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IMessageBusService _messageBusService;
+        private const string QUEUE_NAME = "Payments";
         private readonly string _paymentsBaseUrl;
+
+        public PaymentService(IMessageBusService messageBusService)
+        {
+            _messageBusService = messageBusService;
+        }
 
         public PaymentService(IHttpClientFactory httpClientFactory, IConfiguration configuration)
         {
             _httpClientFactory = httpClientFactory;
             _paymentsBaseUrl = configuration.GetSection("Services:Payments").Value;
+        }
+
+        public void Process(PaymentInfoDTO paymentInfoDTO)
+        {
+            var paymentInfoJson = JsonSerializer.Serialize(paymentInfoDTO);
+            var paymentInfoBytes = Encoding.UTF8.GetBytes(paymentInfoJson);
+
+            _messageBusService.Publish(QUEUE_NAME, paymentInfoBytes);
         }
 
         public async Task<bool> ProcessWithHttp(PaymentInfoDTO paymentInfoDTO)
